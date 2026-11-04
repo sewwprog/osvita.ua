@@ -167,6 +167,6 @@ $('clearScores').addEventListener('click',()=>{state.scores={};save();fillInputs
 function fillInputs(){$('myName').value=state.name||'';$('myGrade').value=state.grade||'';$('myGoal').value=state.goal||'';for(const k of ['ukr','math','history','fourth'])$(k).value=state.scores[k]??'';$('subject').value=state.scores.subject||''}
 [...new Set(universities.map(u=>u.city))].sort().forEach(c=>$('city').add(new Option(c,c)));
 specs.forEach(s=>{$('filterField').add(new Option(s[0],s[0]));$('myGoal').add(new Option(s[0],s[0]))});
-$('specialtiesGrid').innerHTML=specs.map(s=>'<button class="spec" data-spec="'+safe(s[0])+'"><span class="specicon">'+s[1]+'</span><h3>'+safe(s[0])+'</h3><p>'+safe(s[2])+'</p><b>Детальніше →</b></button>').join('');
+$('specialtiesGrid').innerHTML=specs.map(s=>'<button class="spec" data-spec="'+safe(s[0])+'"><span class="specicon">'+iconSvg(specIcons[s[0]],30)+'</span><h3>'+safe(s[0])+'</h3><p>'+safe(s[2])+'</p><b>Детальніше →</b></button>').join('');
 $('countAll').textContent=universities.length;fillInputs();iconify();navigate(viewNames[location.hash.slice(1)]?location.hash.slice(1):'home');
 </script></body></html>
