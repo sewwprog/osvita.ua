@@ -235,7 +235,7 @@ const taskNames=['Дослідити спеціальності','Знайти �
 const $=id=>document.getElementById(id),key='vstupay_portal_v2';
 function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]))}
 function load(){try{const o=JSON.parse(localStorage.getItem(key)||'{}');return o&&typeof o==='object'?o:{}}catch{return {}}}
-let state=load();state.favorites=Array.isArray(state.favorites)?state.favorites.filter(Number.isInteger):[];state.done=Array.isArray(state.done)?state.done.filter(Number.isInteger):[];delete state.legacyScores;
+let state=load();state.favorites=Array.isArray(state.favorites)?state.favorites.filter(Number.isInteger):[];state.done=Array.isArray(state.done)?state.done.filter(Number.isInteger):[];delete state.scores;
 function save(){try{localStorage.setItem(key,JSON.stringify(state));return true}catch{toast('Браузер не дозволяє локальне збереження');return false}}
 function cleanImported(obj){
 if(!obj||typeof obj!=='object'||Array.isArray(obj))throw Error('Неправильний формат');
